@@ -22,10 +22,10 @@ export default function Header() {
         </ul>
 
         <div className="nav-buttons">
-          <NavLink to="/registrate" className="btn">
+          <NavLink to="/registrate" className="botones-ingreso">
             Regístrate
           </NavLink>
-          <NavLink to="/login" className="btn">
+          <NavLink to="/login" className="botones-ingreso">
             Inicia Sesión
           </NavLink>
         </div>

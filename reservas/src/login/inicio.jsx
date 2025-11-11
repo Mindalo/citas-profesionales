@@ -29,7 +29,7 @@ export default function Inicio() {
         <section className="profesionales" id="profesionales">
           <h3>Encuentra al Profesional que Necesitas</h3>
           <div className="tarjetas_profesionales">
-            <div className="tarjeta">
+            <div className="tarjeta_profesional">
               <div className="icon">
                 <FaUserMd />
               </div>
@@ -37,7 +37,7 @@ export default function Inicio() {
               <p>Especialistas en tu salud.</p>
             </div>
 
-            <div className="tarjeta">
+            <div className="tarjeta_profesional">
               <div className="icon">
                 <FaBalanceScale />
               </div>
@@ -45,7 +45,7 @@ export default function Inicio() {
               <p>Asesoría legal confiable.</p>
             </div>
 
-            <div className="tarjeta">
+            <div className="tarjeta_profesional">
               <div className="icon">
                 <FaHardHat />
               </div>
@@ -53,7 +53,7 @@ export default function Inicio() {
               <p>Expertos en proyectos.</p>
             </div>
 
-            <div className="tarjeta">
+            <div className="tarjeta_profesional">
               <div className="icon">
                 <FaChalkboardTeacher />
               </div>
@@ -61,7 +61,7 @@ export default function Inicio() {
               <p>Aprende con expertos.</p>
             </div>
 
-            <div className="tarjeta">
+            <div className="tarjeta_profesional">
               <div className="icon">
                 <IoLibrary />
               </div>
