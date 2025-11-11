@@ -39,37 +39,43 @@ body {
 }
 
 .navbar {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 5%;
+  display: grid; /* Cambio de flex a grid */
+  grid-template-columns: 17% 32% auto; 
   align-items: center;
-  gap: 2rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.logo img {
+.logo-header {
+  display: flex;
+  align-items: center;
+}
+
+.logo-header img {
   width: 40px;
   height: 40px;
-  object-fit: contain;
-}
-.logo-header img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center; /* Centra los links */
+  gap: 30px;
   list-style: none;
 }
 
-.nav-links a {
+.nav-links li a{
   text-decoration: none;
-  font-weight: 500;
-  color: #1f2937;
-  transition: color 0.3s ease;
+  color: #4b5563;
+  font-size: 16px;
+  transition: color 0.3s ease;  
 }
 
 .nav-links a.active,
@@ -77,41 +83,31 @@ body {
   color: #2563eb;
 }
 
-/* ==============================
-   BOTONES DE NAVEGACIÓN
-   ============================== */
 .nav-buttons {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  gap: 15px;
 }
 
-.btn {
-  background-color: #2563eb;
-  color: white;
+.botones-ingreso {
+  background-color: #374151;
+  border-radius: 5px;
   border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
-  font-weight: 600;
+  padding: 10px 20px;
+  text-align: center;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #ecf0f1;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #1e40af;
-  transform: translateY(-2px);
-}
-
-.btn-outline {
+.botones-ingreso:hover {
   background-color: transparent;
-  color: #2563eb;
-  border: 2px solid #2563eb;
+  border: 1px solid #374151;
+  color: #374151;
 }
 
-.btn-outline:hover {
-  background-color: #2563eb;
-  color: white;
-}
 
 /* ==============================
    CONTENEDOR PRINCIPAL
