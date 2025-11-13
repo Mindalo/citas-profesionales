@@ -1,0 +1,133 @@
+.failed-container {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #0f1724;
+  --muted: #6b7280;
+  --brand: #4f46e5;
+  --border: #e5e7eb;
+  --danger: #b91c1c;
+  --radius: 14px;
+  font-family: 'Inter', system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: transparent; /* no tocar background global */
+  padding: 28px 16px;
+}
+
+/* Solo afecta dentro del componente */
+.failed-container * {
+  box-sizing: border-box;
+}
+
+/* Wrapper centrado (no usa body ni display global) */
+.failed-container .wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+/* Card */
+.failed-container .card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 36, 0.06);
+  max-width: 560px;
+  width: 100%;
+  padding: 28px;
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* Icono grande */
+.failed-container .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: rgba(185, 28, 28, 0.08);
+  color: var(--danger);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+/* Título y textos (scopeados) */
+.failed-container h1 {
+  margin: 8px 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.08;
+}
+
+.failed-container .muted {
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-size: 14px;
+}
+
+/* Resumen */
+.failed-container .resume {
+  text-align: left;
+  background: #fbfcfd;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+/* Acciones / botones */
+.failed-container .actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.failed-container .btn {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.12);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.failed-container .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.16);
+}
+
+.failed-container .btn-secondary {
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+/* Pequeños ajustes responsivos */
+@media (max-width: 560px) {
+  .failed-container .card {
+    padding: 20px;
+  }
+  .failed-container .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+  .failed-container h1 {
+    font-size: 20px;
+  }
+}

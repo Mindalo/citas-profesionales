@@ -1,7 +1,25 @@
-/* ===============================
-   🔹 Estilos específicos de la página Inicio
-   =============================== */
+* {
+  box-sizing: border-box;
+}
 
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Asegurar que los contenedores principales no tengan márgenes externos */
+.poppins,
+.contenedor_hero,
+.profesionales,
+.funciona,
+footer {
+  margin: 0 !important;
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+}
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +37,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 6rem 4rem 4rem 4rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
   gap: 4rem;
   background-color: #f9fafb;
   min-height: 600px;
@@ -53,22 +70,23 @@
 }
 
 .boton-cita {
-  background-color: #2563eb;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  background-color: #374151;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
+  color: #ecf0f1;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
-  display: inline-block;
-  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+  cursor: pointer;
 }
 
 .boton-cita:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+  background-color: transparent;
+  border: 1px solid #374151;
+  color: #374151;
 }
 
 .img_hero {
@@ -110,9 +128,9 @@
   padding: 0 2rem;
 }
 
-.tarjeta {
+.tarjeta_profesional {
   background-color: #ffffff;
-  border: 2px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 2.5rem 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -125,13 +143,13 @@
   min-height: 200px;
 }
 
-.tarjeta:hover {
+.tarjeta_profesional:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15);
   border-color: #2563eb;
 }
 
-.tarjeta .icon {
+.tarjeta_profesional .icon {
   font-size: 3.5rem;
   color: #2563eb;
   margin-bottom: 1.5rem;
@@ -140,14 +158,14 @@
   justify-content: center;
 }
 
-.tarjeta h4 {
+.tarjeta_profesional h4 {
   font-size: 1.35rem;
   color: #1f2937;
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
-.tarjeta p {
+.tarjeta_profesional p {
   color: #6b7280;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -177,7 +195,7 @@
 
 .paso {
   background-color: #ffffff;
-  border: 2px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 3rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -208,66 +226,76 @@
 
 /* Footer */
 footer {
-  background-color: #111827;
-  color: #ffffff;
-  padding: 4rem 2rem 1.5rem;
-  margin-top: 3rem;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 48px 0 28px;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 .contenedor_footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  max-width: 1400px;
-  margin: 0 auto 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.columna_footer {
+  color: #cbd5e1;
+}
+
+.logo_footer {
+  width: 56px;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
 }
 
 .columna_footer h4 {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  color: #ffffff;
+  color: #e6eef6;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.columna_footer p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
 }
 
 .columna_footer ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .columna_footer ul li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 8px;
 }
 
-.columna_footer a {
-  color: #9ca3af;
+.columna_footer ul li a {
+  color: #e6eef6;
   text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
 }
 
-.columna_footer a:hover {
-  color: #2563eb;
+.columna_footer ul li a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
 }
 
-.logo_footer {
-  width: 140px;
-  margin-bottom: 1.5rem;
-}
-
-.columna_footer p {
-  color: #9ca3af;
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
-
+/* barra inferior */
 .footer_bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 28px;
+  padding-top: 18px;
   text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid #374151;
-  margin-top: 2rem;
-}
-
-.footer_bottom p {
-  color: #9ca3af;
+  color: #cbd5e1;
   font-size: 0.9rem;
 }
 
@@ -301,6 +329,17 @@ footer {
   .tarjetas_profesionales {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .contenedor_footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+  .logo_footer {
+    margin: 0 auto 8px;
+  }
+  .columna_footer h4 { margin-top: 6px; }
+  .columna_footer p { margin: 0 auto; }
 }
 
 @media (max-width: 768px) {

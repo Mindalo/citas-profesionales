@@ -1,146 +1,215 @@
-/* ===============================
-   🔹 Estilos específicos de Registro / Autenticación
-   =============================== */
+/* =========================================
+   ESTILOS GLOBALES DE PÁGINA DE AUTENTICACIÓN
+   ========================================= */
 
-.auth-container {
+.auth-page {
+  font-family: "Poppins", sans-serif;
+  background-color: #f3f4f6;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 1rem;
 }
 
-.auth-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  width: 100%;
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
+.auth-page .auth-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 45% 55%;
+  width: 90%;
+  max-width: 1100px;
+  min-height: 90vh;
+  background: #ffffff;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-.auth-imagen {
-  background-color: #2563eb;
+/* =========================================
+   SECCIÓN IZQUIERDA (LOGO Y MARCA)
+   ========================================= */
+.auth-page .auth-branding {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 2rem;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
 }
 
-.auth-imagen img {
+.auth-page .branding-contenido {
+  color: white;
+  z-index: 2;
+  max-width: 400px;
+}
+
+.auth-page .logo-section img {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 20px;
+}
+
+.auth-page .logo-section h1 {
+  color: #2563eb;
+  font-size: 46px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.auth-page .logo-section .subtitulo {
+  font-size: 16px;
+  color: #d1d5db;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Fondo con degradado radial decorativo */
+.auth-page .branding-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.15), transparent 50%);
+  z-index: 1;
+}
+
+/* =========================================
+   SECCIÓN DERECHA (FORMULARIO)
+   ========================================= */
+.auth-page .auth-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  background: #fff;
+}
+
+.auth-page .form-wrapper {
   width: 100%;
-  max-width: 300px;
+  max-width: 420px;
 }
 
-.auth-form {
-  padding: 2rem 3rem;
+/* Tabs de Login / Registro */
+.auth-page .tabs {
+  display: flex;
+  gap: 10px;
+  background: #f9fafb;
+  padding: 6px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.auth-page .tab-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-page .tab-btn.active {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Título del formulario */
+.auth-page .form-header h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+/* Campos del formulario */
+.auth-page .auth-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1.25rem;
+  gap: 18px;
 }
 
-.auth-form h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.tab {
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  font-weight: 600;
-  color: #4b5563;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.tab.active {
-  color: #2563eb;
-  border-bottom: 2px solid #2563eb;
-}
-
-.radio-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.radio-card {
-  background-color: #f9fafb;
+.auth-page .auth-form input,
+.auth-page .auth-form select {
+  padding: 12px 15px;
   border: 2px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-  flex: 1;
-  max-width: 200px;
-}
-
-.radio-card:hover {
-  border-color: #2563eb;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.1);
-}
-
-.radio-card.active {
-  border-color: #2563eb;
-  background-color: #eff6ff;
-}
-
-.social-login {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.social-buttons button {
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.auth-page .auth-form input:focus,
+.auth-page .auth-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* Botón principal */
+.auth-page .boton {
+  background: #2563eb;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  transition: 0.3s;
 }
 
-.social-buttons button:hover {
-  background-color: #f3f4f6;
+.auth-page .boton:hover {
+  background: #1d4ed8;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
-.social-buttons img {
-  width: 20px;
-  height: 20px;
+/* Volver al inicio */
+.auth-page .volver-inicio {
+  text-align: center;
+  margin-top: 15px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .auth-card {
+.auth-page .volver-inicio a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #6b7280;
+  transition: 0.3s;
+}
+
+.auth-page .volver-inicio a:hover {
+  color: #2563eb;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .auth-page .auth-container {
     grid-template-columns: 1fr;
   }
 
-  .auth-imagen {
+  .auth-page .auth-branding {
     display: none;
   }
 
-  .auth-form {
-    padding: 2rem;
+  .auth-page {
+    background: white;
+  }
+}
+
+@media (max-width: 640px) {
+  .auth-page .form-header h2 {
+    font-size: 24px;
+  }
+
+  .auth-page .boton {
+    font-size: 15px;
   }
 }

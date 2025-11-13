@@ -1,71 +1,260 @@
-.contenedor-citas {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+/* ===============================
+   Mis Citas — estilos de página
+   (sin header/nav para evitar conflictos)
+   =============================== */
 
-.titulo-citas {
-  font-size: 2rem;
-  font-weight: 700;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f6f8fb; /* gris muy claro */
   color: #111827;
-  text-align: center;
-  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
+/* ===============================
+   Layout principal
+   =============================== */
+.main-content {
+  max-width: 1200px;
+  margin: 88px auto 56px;
+  padding: 0 24px;
+}
+
+/* Sección */
+.citas-section { margin-bottom: 3rem; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* ===============================
+   Grid de tarjetas
+   =============================== */
 .citas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
 }
 
+/* Tarjeta */
 .cita-card {
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #e6e9ef;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  gap: 16px;
 }
 
 .cita-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.16);
+  border-color: #2563eb;
 }
 
-.cita-info h3 {
-  font-size: 1.25rem;
+/* Header de la tarjeta */
+.cita-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cita-header h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
   color: #111827;
-  margin-bottom: 0.25rem;
 }
 
-.status-badge {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: capitalize;
+/* Detalles */
+.cita-details { display: flex; flex-direction: column; gap: 10px; }
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
 }
 
-.status-badge.pendiente {
-  background-color: #fef3c7;
-  color: #92400e;
+.detail-item .label { color: #6b7280; font-weight: 600; }
+.detail-item .value { color: #111827; font-weight: 600; }
+.detail-item .amount { color: #2563eb; font-weight: 800; }
+
+/* Acciones */
+.cita-actions { display: flex; gap: 12px; margin-top: 4px; }
+
+.btn-action {
+  flex: 1;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  font-family: "Poppins", sans-serif;
 }
 
-.status-badge.aceptada {
-  background-color: #dcfce7;
-  color: #166534;
+/* Primario (Editar) */
+.btn-action.edit {
+  background-color: #2563eb;
+  color: #fff;
+}
+.btn-action.edit:hover {
+  background-color: transparent;
+  border: 1.5px solid #2563eb;
+  color: #2563eb;
+  transform: translateY(-2px);
 }
 
-.status-badge.cancelada {
-  background-color: #fee2e2;
-  color: #991b1b;
+/* Secundario (Cancelar) */
+.btn-action.reject {
+  background-color: #1f2937;
+  color: #fff;
+}
+.btn-action.reject:hover {
+  background-color: transparent;
+  border: 1.5px solid #1f2937;
+  color: #1f2937;
+  transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-  .citas-grid {
-    grid-template-columns: 1fr;
-  }
+/* ===============================
+   Modal (CORREGIDO)
+   =============================== */
+/* En tu JSX el modal solo se renderiza cuando está activo.
+   Por eso aquí lo mostramos directamente con display:flex. */
+.modal {
+  display: flex;               /* <- importante */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 92%;
+  max-width: 520px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-28px); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-header h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.modal-close:hover { color: #111827; transform: scale(1.05); }
+
+.modal-form { display: flex; flex-direction: column; gap: 16px; }
+
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+
+.form-group label {
+  font-weight: 700;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.modal-actions { display: flex; gap: 12px; margin-top: 6px; }
+
+.btn-modal {
+  flex: 1;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+}
+
+.btn-modal.save { background-color: #2563eb; color: #fff; }
+.btn-modal.save:hover {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+}
+
+.btn-modal.cancel { background-color: #e5e7eb; color: #1f2937; }
+.btn-modal.cancel:hover {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   Responsive
+   =============================== */
+@media (max-width: 1024px) {
+  .main-content { margin: 72px auto 44px; }
+}
+
+@media (max-width: 640px) {
+  .section-header h2 { font-size: 1.6rem; }
+  .citas-grid { grid-template-columns: 1fr; }
+  .cita-card { padding: 18px; }
+  .btn-action { height: 46px; }
+  .modal-content { width: 94%; padding: 20px; }
 }

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -7,16 +9,16 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f9fafb;
+  color: #111827;
+  line-height: 1.6;
 }
 
 header {
-  width: 100%;
-  position: fixed;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
   top: 0;
-  left: 0;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 100;
 }
 
 nav {
@@ -268,7 +270,7 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 10px 20px;
   background-color: #1f2937;
   color: white;
   border: none;
@@ -335,94 +337,129 @@ nav ul li a:hover {
   flex-shrink: 0;
 }
 
-main {
-  margin-top: 80px;
-  min-height: calc(100vh - 80px);
-  padding: 0 9%;
+.logo {
+  width: 40px;
+  height: 40px;
 }
 
-.especialidades {
-  padding: 80px 5%;
-}
-
-.especialidades h3 {
-  font-size: 36px;
-  font-weight: 600;
-  color: #111827;
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.tarjetas_especialidades {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+.main-content {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 3% 9%;
 }
 
-.tarjeta {
+.pagos-section {
+  margin-bottom: 4rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+
+.pagos-container {
   background-color: white;
-  padding: 30px 20px;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.tarjeta:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
-  border-color: #2563eb;
-}
-
-.tarjeta i {
-  color: #2563eb;
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.tarjeta h4 {
-  color: #111827;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 15px;
-
-  
-}
-
-
-.tarjeta p {
-  color: #4b5563;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.tarjeta .boton {
-  display: inline-block;
-  background-color: #2563eb;
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-align: center;
-  font-weight: 500;
-  font-size: 14px;
-  transition: all 0.3s ease;
+.pagos-table {
   width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
 }
 
-.tarjeta .boton:hover {
-  background-color: transparent;
-  border: 1px solid #2563eb;
+.pagos-table thead {
+  background-color: #f3f4f6;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.pagos-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: #1f2937;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.pagos-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.pagos-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.pagos-table td {
+  padding: 1.25rem 1rem;
+  color: #374151;
+}
+
+.pagos-table td[data-label]::before {
+  content: attr(data-label);
+  font-weight: 600;
+  color: #6b7280;
+  display: none;
+}
+
+.badge-status {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-status.completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.pagos-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.summary-card h4 {
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-card p {
+  font-size: 1.75rem;
+  font-weight: 700;
   color: #2563eb;
-  transform: translateY(-2px);
 }
 
 footer {
@@ -498,81 +535,39 @@ footer {
   color: #2563eb;
 }
 
-@media (max-width: 1400px) {
-  .tarjetas_especialidades {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .tarjetas_especialidades {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-contenedor {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 @media (max-width: 768px) {
+  .main-content {
+    padding: 2rem 5%;
+  }
+
   nav {
-    padding: 15px 3%;
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
   }
 
   nav ul {
-    gap: 15px;
+    gap: 1rem;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    order: 3;
   }
 
-  nav ul li a {
-    font-size: 14px;
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
-  .especialidades {
-    padding: 60px 3%;
+  .pagos-table {
+    font-size: 0.85rem;
   }
 
-  .especialidades h3 {
-    font-size: 28px;
-    margin-bottom: 40px;
+  .pagos-table th,
+  .pagos-table td {
+    padding: 0.75rem 0.5rem;
   }
 
-  .tarjetas_especialidades {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .footer-contenedor {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  footer {
-    padding: 40px 3% 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  nav h1 {
-    font-size: 20px;
-  }
-
-  nav ul {
-    display: none;
-  }
-
-  .especialidades h3 {
-    font-size: 24px;
-  }
-
-  .tarjeta {
-    padding: 30px 20px;
-  }
-
-  .tarjeta h4 {
-    font-size: 20px;
-  }
-
-  .tarjetas_especialidades {
+  .pagos-summary {
     grid-template-columns: 1fr;
   }
 }

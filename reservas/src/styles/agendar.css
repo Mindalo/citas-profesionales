@@ -1,97 +1,214 @@
 /* ===============================
-   🔹 Estilos específicos de Agendar Cita
+   🔹 Fondo general
    =============================== */
+body {
+  background-color: #f6f8fb; /* gris muy claro como en la captura */
+}
 
+/* ===============================
+   🔹 Contenedor principal (2 columnas) - MÁS ANCHO
+   =============================== */
 .main {
+  max-width: 1400px;            /* ← aumenté de 1200px a 1400px */
+  margin: 88px auto 56px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ===============================
+   🔹 Panel IZQUIERDO
+   =============================== */
+.seleccionar-fecha-hora {
+  background: #fff;
+  border: 1px solid #e8eaee;
+  border-radius: 14px;
+  padding: 40px 40px 40px;      /* uniforme */
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 2px 6px rgba(16, 24, 40, 0.06);
+}
+
+/* Título izquierdo - UNIFORME CON DERECHA */
+.seleccionar-fecha-hora .section-title {
+  font-size: 1.625rem;          /* ← igualo con derecha */
+  line-height: 1.2;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 28px 0;           /* uniforme */
+  text-align: left;
+}
+
+/* Tarjeta interna */
+.seleccionar-fecha-hora .card {
+  max-width: 100%;              /* ocupa todo el ancho disponible */
+  background-color: #ffffff;
+  border: 1px solid #e6e9ef;
+  border-radius: 12px;
+  padding: 28px 28px;
+  margin: 0;                     /* sin margen auto */
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.08);
+}
+
+/* Bloques de selector */
+.selector-fecha,
+.selector-horario {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: stretch;
 }
 
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 1rem;
-  text-align: center;
+.selector-fecha label,
+.selector-horario label {
+  font-size: 0.95rem;           /* uniforme */
+  font-weight: 900;
+  color: #374151;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
 }
 
-.selector-fecha {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-.input-fecha {
-  padding: 0.75rem 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 1rem;
+/* Inputs (date/select) */
+.input-fecha,
+.input-horario,
+.seleccionar-fecha-hora select,
+.seleccionar-fecha-hora input[type="date"] {
   width: 100%;
-  max-width: 300px;
-  text-align: center;
+  height: 52px;                 /* ← reduje de 56px a 52px */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #111827;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.input-fecha:focus {
-  outline: none;
+.input-fecha:focus,
+.input-horario:focus,
+.seleccionar-fecha-hora select:focus,
+.seleccionar-fecha-hora input[type="date"]:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-/* Resumen de la cita */
-.resumen-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
+/* ===============================
+   🔹 Columna DERECHA - UNIFORME
+   =============================== */
+.detalles-cita .section-title {
+  font-size: 1.625rem;          /* igual que izquierda */
+  line-height: 1.2;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 28px 0;           /* uniforme */
+  text-align: left;
+}
+
+.detalles-cita .card {
+  max-width: 100%;              /* ocupa todo el ancho */
   background-color: #ffffff;
+  border: 1px solid #e6e9ef;
   border-radius: 12px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 28px 28px;           /* uniforme */
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.08);
 }
 
-.resumen-item {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  font-size: 1rem;
-  color: #374151;
+/* Encabezados del resumen */
+.resumen-seccion h4 {
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
 }
 
-.resumen-item strong {
+/* Valor del profesional */
+.resumen-valor {
+  font-size: 1.05rem;
   color: #111827;
 }
 
-/* Botón confirmar */
+/* Separador fino */
+hr.divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 18px 0 20px;
+}
+
+/* Fila "Total a pagar" */
+.precio-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.precio-total span:first-child {
+  color: #111827;
+  font-weight: 700;
+}
+
+.monto {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+/* Botón */
 .btn-confirmar {
+  width: 100%;
+  height: 54px;
+  margin-top: 22px;
   background-color: #2563eb;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 0.75rem 2rem;
+  border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 1.5rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-confirmar:hover {
   background-color: #1e40af;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
 }
 
-@media (max-width: 768px) {
-  .resumen-container {
-    padding: 1.5rem;
+/* ===============================
+   🔹 Responsivo
+   =============================== */
+@media (max-width: 1100px) {
+  .seleccionar-fecha-hora .section-title { font-size: 1.6rem; }
+  .detalles-cita .section-title { font-size: 1.5rem; }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin: 72px auto 44px;
   }
-  .section-title {
-    font-size: 1.5rem;
-  }
+  .seleccionar-fecha-hora { padding: 32px 24px; }
+  .seleccionar-fecha-hora .card,
+  .detalles-cita .card { max-width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .seleccionar-fecha-hora .section-title { font-size: 1.4rem; }
+  .detalles-cita .section-title { font-size: 1.3rem; }
+  .input-fecha,
+  .input-horario { height: 50px; }
+  .monto { font-size: 1.25rem; }
 }
